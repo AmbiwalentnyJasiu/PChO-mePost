@@ -1,0 +1,75 @@
+﻿@page
+@model Project.Pages.Posts.PostDetails
+
+@{
+    ViewData["Title"] = "PostDetails";
+}
+
+@if (Model.Comments.Any())
+{
+    <p>Comments</p>
+    <div class="row">
+        <table class="table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>IsComment</th>
+                <th>Content</th>
+                <th>Controls</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Comments)
+            {
+                <tr>
+                    <td class="col-2">@item.Id</td>
+                    <td class="col-2">@item.Date</td>
+                    <td class="col-1">@item.IsComment</td>
+                    <td class="col-5">@item.Content</td>
+                    <td class="d-flex flex-row col-3">
+                        <a class="btn btn-outline-primary mx-2" href="/Posts/AddReaction?postId=@item.Id">Reaction</a>
+                        <a class="btn btn-outline-primary mx-2" href="/Posts/NewPost?commentedPostId=@item.Id">Comment</a>
+                        <a class="btn btn-outline-primary mx-2" href="/Posts/PostDetails?postId=@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No comments</p>
+}
+
+@if (Model.Reactions.Any())
+{
+    <p>Reactions</p>
+    <div class="row">
+        <table class="table-striped">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Reactions)
+            {
+                <tr>
+                    <td class="col-5">@item.UserName</td>
+                    <td class="col-2">@item.Date</td>
+                    <td class="col-1">@item.Type</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No reactions</p>
+}
+

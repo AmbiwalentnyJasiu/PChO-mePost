@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Neo4j.Driver" Version="5.15.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\Posts\AddComment.cshtml.cs" />
+      <Compile Remove="Pages\Posts\NewPost.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Pages\Posts\AddComment.cshtml" />
+    </ItemGroup>
+
+</Project>

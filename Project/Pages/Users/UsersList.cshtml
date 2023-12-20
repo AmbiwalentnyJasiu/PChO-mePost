@@ -1,0 +1,35 @@
+﻿@page
+@using System.Security.Claims
+@model Project.Pages.Users.UsersList
+
+@{
+    ViewData["Title"] = "UsersList";
+}
+
+<div class="row">
+    <table class="table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td class="col-2">@item.Id</td>
+                <td class="col-2">@item.Name</td>
+                <td class="col-1">@item.Gender</td>
+                <td class="col-5">@item.DateOfBirth</td>
+                <td class="d-flex flex-row col-3">
+                    <a class="btn btn-outline-primary mx-2" href="/Posts/PostsList?id=@item.Id">Posts</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

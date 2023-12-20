@@ -1,0 +1,80 @@
+﻿@page
+@model Project.Pages.Account.Register
+
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <label asp-for="RegisterModel.Login"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="RegisterModel.Login" class="form-control"/>
+            </div>
+            <span class="text-danger col-3" asp-validation-for="RegisterModel.Login"></span>
+        </div>
+        
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <label asp-for="RegisterModel.Password"></label>
+            </div>
+            <div class="col-3">
+                <input type="password" asp-for="RegisterModel.Password" class="form-control"/>
+            </div>
+            <span class="text-danger col-3" asp-validation-for="RegisterModel.Password"></span>
+        </div>
+        
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <label asp-for="RegisterModel.FirstName"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="RegisterModel.FirstName" class="form-control"/>
+            </div>
+            <span class="text-danger col-3" asp-validation-for="RegisterModel.FirstName"></span>
+        </div>
+        
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <label asp-for="RegisterModel.LastName"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="RegisterModel.LastName" class="form-control"/>
+            </div>
+            <span class="text-danger col-3" asp-validation-for="RegisterModel.LastName"></span>
+        </div>
+        
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <label asp-for="RegisterModel.Gender"></label>
+            </div>
+            <div class="col-3">
+                @foreach (var gender in Model.Genders)
+                {
+                    <input class="form-check-input" type="radio" asp-for="RegisterModel.Gender" value="@gender" id="Gender@(gender)" />@gender<br />
+                }
+            </div>
+            <span class="text-danger col-3" asp-validation-for="RegisterModel.Gender"></span>
+        </div>
+        
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <label asp-for="RegisterModel.DateOfBirth"></label>
+            </div>
+            <div class="col-3">
+                <input type="date" asp-for="RegisterModel.DateOfBirth" class="form-control"/>
+            </div>
+            <span class="text-danger col-3" asp-validation-for="RegisterModel.DateOfBirth"></span>
+        </div>
+        
+        <div class="form-group row my-1">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Register"/>
+            </div>
+        </div>
+    </form>
+
+</div>

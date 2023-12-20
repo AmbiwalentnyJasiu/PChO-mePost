@@ -1,0 +1,36 @@
+﻿@page
+@model Project.Pages.Posts.PostsList
+
+@{
+    ViewData["Title"] = "PostList";
+}
+
+<div class="row">
+    <table class="table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>IsComment</th>
+            <th>Content</th>
+            <th>Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Posts)
+        {
+            <tr>
+                <td class="col-2">@item.Id</td>
+                <td class="col-2">@item.Date</td>
+                <td class="col-1">@item.IsComment</td>
+                <td class="col-5">@item.Content</td>
+                <td class="d-flex flex-row col-3">
+                    <a class="btn btn-outline-primary mx-2" href="/Posts/AddReaction?postId=@item.Id">Reaction</a>
+                    <a class="btn btn-outline-primary mx-2" href="/Posts/NewPost?commentedPostId=@item.Id">Comment</a>
+                    <a class="btn btn-outline-primary mx-2" href="/Posts/PostDetails?postId=@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
