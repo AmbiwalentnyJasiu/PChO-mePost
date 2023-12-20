@@ -4,13 +4,13 @@
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
         <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-page="/Posts/PostsList" asp-route-id="@User.Claims.First(c => c.Type == ClaimTypes.Sid).Value" >Moje posty</a>
+                <a class="nav-link text-dark" asp-page="/Posts/PostsList" asp-route-id="@User.Claims.First(c => c.Type == ClaimTypes.Sid).Value" >My posts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-page="/Posts/NewPost">Dodaj nowy post</a>
+                <a class="nav-link text-dark" asp-page="/Posts/NewPost">Create new post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp- asp-page="/Users/UsersList">Użytkownicy</a>
+                <a class="nav-link text-dark" asp-area="" asp- asp-page="/Users/UsersList">Users</a>
             </li>
         </ul>
     </div>
